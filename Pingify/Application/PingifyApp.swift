@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Infra
 
 @main
 struct PingifyApp: App {
+
+    @StateObject private var router = AppRouter()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(router)
         }
     }
 }
