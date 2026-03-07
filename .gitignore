@@ -1,0 +1,47 @@
+# Xcode
+#
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace/contents.xcworkspacedata
+*.xcworkspacedata
+
+## Other
+*.moved-aside
+*.xcuserstate
+*.xcstate
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+.build/
+
+# CocoaPods
+# Pods/ (uncomment if you want to ignore the Pods directory and manage dependencies via `pod install`)
+Podfile.lock
+
+# Carthage
+# Carthage/Build/
+
+# macOS
+.DS_Store
+.LSOverride
+
+# Sensitive Information
+# Add this line if your project uses .env files for secrets
+.env*
+
