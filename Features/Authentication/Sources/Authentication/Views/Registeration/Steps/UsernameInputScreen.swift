@@ -18,31 +18,16 @@ public struct UsernameInputScreen: View {
         @Bindable var vm = viewModel
 
         VStack(alignment: .leading, spacing: Spacing.lg) {
-            VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text("Username")
-                    .textStyle(.bodyL)
-
-                TextField(
-                    "",
-                    text: $vm.emailAddress,
-                    prompt: Text("Enter unique username")
-                        .foregroundStyle(theme.colors.textTertiary)
-                        .font(FontFamily.Poppins.light.size(14))
-                )
-                .padding(.vertical, Spacing.md)
-                .padding(.horizontal, Spacing.sm)
-                .overlay {
-                    RoundedRectangle(cornerRadius: Radius.full)
-                        .strokeBorder(theme.colors.borderDefault, lineWidth: 1)
-                }
-                .textFieldStyle(.automatic)
-                .tint(theme.colors.brandPrimary)
-                .textStyle(.bodyL)
-                .keyboardType(.default)
-                .autocorrectionDisabled()
-                .textContentType(.username)
-                .textInputAutocapitalization(.never)
-            }
+            AppTextField(
+                "Enter username",
+                text: $vm.username,
+                label: "Username",
+                errorMessage: !vm.username.isEmpty && !vm.isUsernameValid
+                    ? "Please enter a valid username"
+                    : nil,
+                keyboardType: .default,
+                textContentType: .username
+            )
         }
     }
 }
