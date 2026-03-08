@@ -4,34 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "Authentication",
+    name: "InfraUI",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Authentication",
-            targets: ["Authentication"]
+            name: "InfraUI",
+            targets: ["InfraUI"]
         ),
-    ],
-    dependencies: [
-        .package(path: "../Infra"),
-        .package(path: "../InfraUI"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Authentication",
-            dependencies: [
-                .product(name: "Infra", package: "Infra"),
-                .product(name: "InfraUI", package: "InfraUI"),
+            name: "InfraUI",
+            resources: [
+                .process("Resources")
             ]
         ),
         .testTarget(
-            name: "AuthenticationTests",
-            dependencies: ["Authentication"]
+            name: "InfraUITests",
+            dependencies: ["InfraUI"]
         ),
     ]
 )

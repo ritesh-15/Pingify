@@ -9,17 +9,32 @@
 /* Begin PBXBuildFile section */
 		F74BD1142F5C955500570B28 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1132F5C955500570B28 /* Infra */; };
 		F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1172F5C9F1A00570B28 /* Authentication */; };
+		F76666EB2F5D625E00220CEA /* InfraUI in Frameworks */ = {isa = PBXBuildFile; productRef = F76666EA2F5D625E00220CEA /* InfraUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F74BD0FF2F5C90E900570B28 /* Pingify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74BD10D2F5C91CB00570B28 /* Infra */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Infra; sourceTree = "<group>"; };
 		F74BD1162F5C9D0800570B28 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
+		F76666E92F5D5EB600220CEA /* InfraUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = InfraUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F76667152F5D648200220CEA /* Exceptions for "Pingify" folder in "Pingify" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F74BD0FE2F5C90E900570B28 /* Pingify */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F74BD1012F5C90E900570B28 /* Pingify */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F76667152F5D648200220CEA /* Exceptions for "Pingify" folder in "Pingify" target */,
+			);
 			path = Pingify;
 			sourceTree = "<group>";
 		};
@@ -30,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76666EB2F5D625E00220CEA /* InfraUI in Frameworks */,
 				F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */,
 				F74BD1142F5C955500570B28 /* Infra in Frameworks */,
 			);
@@ -41,6 +57,7 @@
 		F74BD0F62F5C90E900570B28 = {
 			isa = PBXGroup;
 			children = (
+				F76666E92F5D5EB600220CEA /* InfraUI */,
 				F74BD1152F5C9CED00570B28 /* Features */,
 				F74BD10D2F5C91CB00570B28 /* Infra */,
 				F74BD1012F5C90E900570B28 /* Pingify */,
@@ -94,6 +111,7 @@
 			packageProductDependencies = (
 				F74BD1132F5C955500570B28 /* Infra */,
 				F74BD1172F5C9F1A00570B28 /* Authentication */,
+				F76666EA2F5D625E00220CEA /* InfraUI */,
 			);
 			productName = Pingify;
 			productReference = F74BD0FF2F5C90E900570B28 /* Pingify.app */;
@@ -282,6 +300,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pingify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +332,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pingify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -366,6 +386,10 @@
 		F74BD1172F5C9F1A00570B28 /* Authentication */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Authentication;
+		};
+		F76666EA2F5D625E00220CEA /* InfraUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InfraUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
