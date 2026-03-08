@@ -7,39 +7,28 @@
 
 import SwiftUI
 import Infra
+import Authentication
 
 struct ContentView: View {
 
-    @EnvironmentObject private var appRouter: AppRouter
+    @Environment(AuthManager.self) private var authManager
+    @Environment(AppRouter.self) private var appRouter
 
     var body: some View {
-        TabView {
-            Tab(AppTab.chats.title, systemImage: AppTab.chats.icon) {
-                NavigationStack(path: appRouter.binding(for: .chats)) {
-                    Text("ChatList")
-                        .navigationDestination(for: Route.self) { route in
-                            AppViewFactory.view(for: route)
-                        }
-                }
-            }
+        @Bindable var router = appRouter
 
-            Tab(AppTab.newChat.title, systemImage: AppTab.newChat.icon) {
-                NavigationStack(path: appRouter.binding(for: .chats)) {
-                    Text("New Chat")
-                        .navigationDestination(for: Route.self) { route in
-                            AppViewFactory.view(for: route)
-                        }
-                }
+        switch authManager.state {
+        case .authenticated:
+            MainScreen()
+        case .unauthenticated:
+            NavigationStack(path: $router.globalPath) {
+                LandingScreen()
+                    .navigationDestination(for: Route.self) { route in
+                        AppViewFactory.view(for: route)
+                    }
             }
-
-            Tab(AppTab.profile.title, systemImage: AppTab.profile.icon) {
-                NavigationStack(path: appRouter.binding(for: .chats)) {
-                    Text("Chats")
-                        .navigationDestination(for: Route.self) { route in
-                            AppViewFactory.view(for: route)
-                        }
-                }
-            }
+        case .loading:
+            Text("Splash screen loading...")
         }
     }
 }

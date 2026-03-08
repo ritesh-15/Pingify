@@ -1,6 +1,6 @@
 import Foundation
 
-public enum AppTab: Hashable, CaseIterable {
+public enum AppTab: Hashable, CaseIterable, Equatable {
     case chats
     case newChat
     case profile

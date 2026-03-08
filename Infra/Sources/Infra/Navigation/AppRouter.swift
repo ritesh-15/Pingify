@@ -1,82 +1,76 @@
 import SwiftUI
-import Combine
 
+@Observable
 @MainActor
-public final class AppRouter: ObservableObject {
+public final class AppRouter {
 
-    // MARK: - State
+    public var selectedTab: AppTab
 
-    @Published public var selectedTab: AppTab
+    private var paths: [AppTab: NavigationPath] = [
+        .chats: NavigationPath(),
+        .newChat: NavigationPath(),
+        .profile: NavigationPath()
+    ]
 
-    @Published private var paths: [AppTab: [Route]] = Dictionary(
-        uniqueKeysWithValues: AppTab.allCases.map { ($0, []) }
-    )
-
-    // MARK: - Init
+    public var globalPath: NavigationPath = .init()
+    private(set) var presentedSheet: Route?
+    private(set) var presentedFullScreen: Route?
 
     public init(initialTab: AppTab = .chats) {
         self.selectedTab = initialTab
     }
 
-    // MARK: - Path Binding (for NavigationStack)
+    // MARK: - Full screen and sheets
 
-    public func binding(for tab: AppTab) -> Binding<[Route]> {
-        Binding(
-            get: { self.paths[tab] ?? [] },
-            set: { self.paths[tab] = $0 }
-        )
+    public func presentFullScreen(route: Route) {
+        presentedFullScreen = route
     }
 
-    // MARK: - Push
+    public func dismissFullScreen() {
+        presentedFullScreen = nil
+    }
 
-    /// Push onto the current tab
-    public func push(_ route: Route) {
+    public func presentSheet(route: Route) {
+        presentedSheet = route
+    }
+
+    public func dismissSheet() {
+        presentedSheet = nil
+    }
+
+    // MARK: - Navigation
+
+    public func navigate(to route: Route) {
+        if route.isGlobal {
+            globalPath.append(route)
+            return
+        }
+
         paths[selectedTab]?.append(route)
     }
 
-    /// Push onto a specific tab
-    public func push(_ route: Route, in tab: AppTab) {
-        paths[tab]?.append(route)
-    }
-
-    // MARK: - Pop
-
-    public func pop() {
+    public func navigateBack() {
         paths[selectedTab]?.removeLast()
     }
 
-    public func pop(in tab: AppTab) {
-        guard !(paths[tab]?.isEmpty ?? true) else { return }
-        paths[tab]?.removeLast()
-    }
-
-    public func popToRoot() {
-        paths[selectedTab]?.removeAll()
-    }
-
-    public func popToRoot(in tab: AppTab) {
-        paths[tab]?.removeAll()
-    }
-
-    // MARK: - Tab
-
-    public func selectTab(_ tab: AppTab) {
+    public func switchTab(to tab: AppTab) {
         selectedTab = tab
     }
 
-    /// Standard iOS UX: re-tapping active tab pops to root
-    public func handleTabReselect(_ tab: AppTab) {
-        guard tab == selectedTab else { return }
-        popToRoot(in: tab)
+    func resetAllPaths() {
+        paths = [
+            .chats: .init(),
+            .newChat: .init(),
+            .profile: .init()
+        ]
+        globalPath = .init()
     }
 
-    // MARK: - Cross-tab
-
-    /// Switch tab then optionally push a route
-    public func navigate(to tab: AppTab, pushing route: Route? = nil) {
-        selectedTab = tab
-        if let route {
-            push(route, in: tab)
+    public var currentPath: Binding<NavigationPath> {
+        Binding {
+            self.paths[self.selectedTab] ?? .init()
+        } set: {
+            self.paths[self.selectedTab] = $0
         }
     }
 }

@@ -1,23 +1,28 @@
 import SwiftUI
 import Infra
+import Authentication
 
 public struct AppViewFactory {
 
     @ViewBuilder
     public static func view(for route: Route) -> some View {
         switch route {
-        case .chatList:
+        case .chats:
             Text("ChatList")
-        case .conversation(let _):
+        case .conversation( _):
             Text("Conversation")
         case .newChat:
             Text("New Chat")
         case .login:
-            Text("Login")
+            LoginScreen()
         case .register:
-            Text("Register")
+            RegisterationScreen()
         case .landing:
-            Text("Landing")
+            LandingScreen()
+        case .splash:
+            Text("Splash screen")
+        case .profile:
+            Text("Profile")
         }
     }
 }

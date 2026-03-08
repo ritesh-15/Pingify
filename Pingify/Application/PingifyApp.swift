@@ -11,12 +11,14 @@ import Infra
 @main
 struct PingifyApp: App {
 
-    @StateObject private var router = AppRouter()
+    @State private var router = AppRouter()
+    @State private var authManager = AuthManager()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(router)
+                .environment(router)
+                .environment(authManager)
         }
     }
 }

@@ -4,16 +4,27 @@ public enum Route: Hashable {
 
     // MARK: - Chats
 
-    case chatList
+    case chats
     case conversation(id: String)
     case newChat
 
-    // MARK: - Auth
+    // MARK: - Profile
+
+    case profile
+
+    // MARK: - Onboarding and signup
 
     case login
     case register
-
-    // MARK: - Onboarding
-
     case landing
+    case splash
+
+    var isGlobal: Bool {
+        switch self {
+        case .login, .register, .landing, .splash:
+            return true
+        default:
+            return false
+        }
+    }
 }
