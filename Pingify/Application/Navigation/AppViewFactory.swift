@@ -16,7 +16,7 @@ public struct AppViewFactory {
         case .login:
             LoginScreen()
         case .register:
-            RegisterationScreen()
+            RegisterationCoordinator()
         case .landing:
             LandingScreen()
         case .splash:

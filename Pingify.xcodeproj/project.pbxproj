@@ -10,6 +10,7 @@
 		F74BD1142F5C955500570B28 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1132F5C955500570B28 /* Infra */; };
 		F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1172F5C9F1A00570B28 /* Authentication */; };
 		F76666EB2F5D625E00220CEA /* InfraUI in Frameworks */ = {isa = PBXBuildFile; productRef = F76666EA2F5D625E00220CEA /* InfraUI */; };
+		F7769FB92F5D8E9E00D8C048 /* PreviewKit in Frameworks */ = {isa = PBXBuildFile; productRef = F7769FB82F5D8E9E00D8C048 /* PreviewKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		F74BD10D2F5C91CB00570B28 /* Infra */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Infra; sourceTree = "<group>"; };
 		F74BD1162F5C9D0800570B28 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
 		F76666E92F5D5EB600220CEA /* InfraUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = InfraUI; sourceTree = "<group>"; };
+		F7769FB72F5D78F300D8C048 /* PreviewKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PreviewKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7769FB92F5D8E9E00D8C048 /* PreviewKit in Frameworks */,
 				F76666EB2F5D625E00220CEA /* InfraUI in Frameworks */,
 				F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */,
 				F74BD1142F5C955500570B28 /* Infra in Frameworks */,
@@ -57,6 +60,7 @@
 		F74BD0F62F5C90E900570B28 = {
 			isa = PBXGroup;
 			children = (
+				F7769FB72F5D78F300D8C048 /* PreviewKit */,
 				F76666E92F5D5EB600220CEA /* InfraUI */,
 				F74BD1152F5C9CED00570B28 /* Features */,
 				F74BD10D2F5C91CB00570B28 /* Infra */,
@@ -112,6 +116,7 @@
 				F74BD1132F5C955500570B28 /* Infra */,
 				F74BD1172F5C9F1A00570B28 /* Authentication */,
 				F76666EA2F5D625E00220CEA /* InfraUI */,
+				F7769FB82F5D8E9E00D8C048 /* PreviewKit */,
 			);
 			productName = Pingify;
 			productReference = F74BD0FF2F5C90E900570B28 /* Pingify.app */;
@@ -390,6 +395,10 @@
 		F76666EA2F5D625E00220CEA /* InfraUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InfraUI;
+		};
+		F7769FB82F5D8E9E00D8C048 /* PreviewKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreviewKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
