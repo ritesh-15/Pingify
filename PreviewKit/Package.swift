@@ -4,41 +4,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "Authentication",
+    name: "PreviewKit",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Authentication",
-            targets: ["Authentication"]
+            name: "PreviewKit",
+            targets: ["PreviewKit"]
         ),
     ],
     dependencies: [
         .package(path: "../Infra"),
-        .package(path: "../InfraUI"),
-        .package(path: "../PreviewKit")
+        .package(path: "../InfraUI")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Authentication",
+            name: "PreviewKit",
             dependencies: [
                 .product(name: "Infra", package: "Infra"),
                 .product(name: "InfraUI", package: "InfraUI"),
-                .product(name: "PreviewKit", package: "PreviewKit")
-            ],
-            swiftSettings: [
-                .define("DEBUG", .when(configuration: .debug))
             ]
         ),
         .testTarget(
-            name: "AuthenticationTests",
-            dependencies: [
-                "Authentication",
-            ]
+            name: "PreviewKitTests",
+            dependencies: ["PreviewKit"]
         ),
-    ],
+    ]
 )
