@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import Infra
 
 @main
 struct PingifyApp: App {
+
+    @State private var router = AppRouter()
+    @State private var authManager = AuthManager()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(router)
+                .environment(authManager)
         }
     }
 }

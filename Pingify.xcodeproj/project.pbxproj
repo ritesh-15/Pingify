@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F74BD1142F5C955500570B28 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1132F5C955500570B28 /* Infra */; };
+		F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = F74BD1172F5C9F1A00570B28 /* Authentication */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F74BD0FF2F5C90E900570B28 /* Pingify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74BD10D2F5C91CB00570B28 /* Infra */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Infra; sourceTree = "<group>"; };
+		F74BD1162F5C9D0800570B28 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74BD1182F5C9F1A00570B28 /* Authentication in Frameworks */,
+				F74BD1142F5C955500570B28 /* Infra in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +41,10 @@
 		F74BD0F62F5C90E900570B28 = {
 			isa = PBXGroup;
 			children = (
+				F74BD1152F5C9CED00570B28 /* Features */,
+				F74BD10D2F5C91CB00570B28 /* Infra */,
 				F74BD1012F5C90E900570B28 /* Pingify */,
+				F74BD1122F5C955500570B28 /* Frameworks */,
 				F74BD1002F5C90E900570B28 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +55,21 @@
 				F74BD0FF2F5C90E900570B28 /* Pingify.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F74BD1122F5C955500570B28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F74BD1152F5C9CED00570B28 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F74BD1162F5C9D0800570B28 /* Authentication */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +92,8 @@
 			);
 			name = Pingify;
 			packageProductDependencies = (
+				F74BD1132F5C955500570B28 /* Infra */,
+				F74BD1172F5C9F1A00570B28 /* Authentication */,
 			);
 			productName = Pingify;
 			productReference = F74BD0FF2F5C90E900570B28 /* Pingify.app */;
@@ -328,6 +357,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F74BD1132F5C955500570B28 /* Infra */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Infra;
+		};
+		F74BD1172F5C9F1A00570B28 /* Authentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Authentication;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F74BD0F72F5C90E900570B28 /* Project object */;
 }
