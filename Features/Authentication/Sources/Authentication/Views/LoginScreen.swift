@@ -13,9 +13,7 @@ public struct LoginScreen: View {
 
     @State private var viewModel = LoginScreenViewModel()
 
-    public init () {
-
-    }
+    public init () {}
 
     public var body: some View {
         ScrollView(.vertical, showsIndicators: false) {

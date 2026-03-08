@@ -17,10 +17,6 @@ public struct AppViewFactory {
             LoginScreen()
         case .register:
             RegisterationCoordinator()
-        case .landing:
-            LandingScreen()
-        case .splash:
-            Text("Splash screen")
         case .profile:
             Text("Profile")
         }

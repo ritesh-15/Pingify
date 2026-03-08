@@ -43,9 +43,41 @@ final class RegisterScreenViewModel {
     var currentStep: RegistrationStep = .username
     var navigationDirection: NavigationDirection = .forward
 
+    var isCurrentStepValid: Bool {
+        switch currentStep {
+        case .username: return isUsernameValid
+        case .email:    return isEmailValid
+        case .password: return isPasswordValid
+        case .profile:  return isProfileValid
+        }
+    }
+
+    var isUsernameValid: Bool {
+        username.count >= 3 && !username.contains(" ")
+    }
+
+    var isEmailValid: Bool {
+        let regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/
+        return (try? regex.ignoresCase().wholeMatch(in: emailAddress)) != nil
+    }
+
+    var isPasswordValid: Bool {
+        password.count >= 8 && password == confirmPassword
+    }
+
+    var isProfileValid: Bool {
+        displayName.count >= 2
+    }
+
     init() {}
 
+    // MARK: - Public methods
+
     func nextStep() {
+        guard isCurrentStepValid else {
+            return
+        }
+
         guard let next = RegistrationStep(rawValue: currentStep.rawValue + 1) else {
             // TODO: Handle submit
             return

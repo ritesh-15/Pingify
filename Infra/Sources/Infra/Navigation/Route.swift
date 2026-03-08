@@ -16,12 +16,10 @@ public enum Route: Hashable {
 
     case login
     case register
-    case landing
-    case splash
 
     var isGlobal: Bool {
         switch self {
-        case .login, .register, .landing, .splash:
+        case .login, .register:
             return true
         default:
             return false

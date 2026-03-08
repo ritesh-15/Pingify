@@ -12,7 +12,7 @@ public struct LandingScreen: View {
     @Environment(\.appTheme) private var theme
 
     public init() {}
-    
+
     public var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: Spacing.xl) {

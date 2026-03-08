@@ -17,6 +17,8 @@ public struct RegisterationCoordinator: View {
     public var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: Spacing.xl) {
+                StepProgressView(progress: viewModel.currentStep.progress)
+                
                 Text("\(viewModel.currentStep.title)")
                     .textStyle(.headingXL)
 
@@ -50,9 +52,14 @@ public struct RegisterationCoordinator: View {
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, Spacing.lg)
                     .padding(.vertical, Spacing.lg)
-                    .background(theme.colors.brandPrimary)
+                    .background(
+                        viewModel.isCurrentStepValid
+                            ? theme.colors.brandPrimary
+                            : theme.colors.borderDefault
+                    )
                     .foregroundStyle(theme.colors.textPrimary)
                     .clipShape(.buttonBorder)
+                    .disabled(!viewModel.isCurrentStepValid)
                     .textStyle(.bodyL)
 
                     if viewModel.currentStep == .username {

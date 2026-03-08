@@ -20,7 +20,7 @@ struct ProfileDetailsScreen: View {
 
                 TextField(
                     "",
-                    text: $vm.emailAddress,
+                    text: $vm.displayName,
                     prompt: Text("What others will call you")
                         .foregroundStyle(theme.colors.textTertiary)
                         .font(FontFamily.Poppins.light.size(14))
